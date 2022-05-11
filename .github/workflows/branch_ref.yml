@@ -1,0 +1,18 @@
+# DO NOT EDIT. This file is synced from https://github.com/cloudquery/.github/.github
+name: validate-release
+on:
+  pull_request:
+    branches:
+      - main
+env:
+  CGO_ENABLED: 0
+
+jobs:
+  release-dry-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo ref name
+        run: echo ${{ github.ref_name }}
+      - name: Checkout
+        if: github.ref_name == 'chore/test_branch_ref'
+        run: echo "hello"
