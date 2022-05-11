@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo ref name
-        run: echo ${{ github.ref_name }}
+        run: echo ${{ github.head_ref }}
       - name: Checkout
-        if: github.ref_name == 'chore/test_branch_ref'
+        if: github.head_ref == 'chore/test_branch_ref'
         run: echo "hello"
